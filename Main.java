@@ -1,19 +1,49 @@
-
-import java.utils.*;
-
 class Main {
     public static void main(String[] args) {
 
-        int[] arr = {1,2,2,3,3};
+        // int[] arr = {1,2,2,3,3};
 
-        removeDb(arr);
+        // removeDb(arr);
 
-        for(int a : arr){
-      System.out.print(a);
-        }
+    //     for(int a : arr){
+    //   System.out.print(a);
+    //     }
+
+     String[] strs = {"flower","flow","flight"};
+
+        System.out.print(longestCommonPrefix(strs));
 
     
     }
+
+     static String longestCommonPrefix(String[] strs) {
+
+    // Edge case
+    if (strs == null || strs.length == 0) {
+        return "";
+    }
+
+    // Take first string as reference
+    String first = strs[0];
+
+    // Compare characters index by index
+    for (int i = 0; i < first.length(); i++) {
+
+        char currentChar = first.charAt(i);
+
+        // Compare with all other strings
+        for (int j = 1; j < strs.length; j++) {
+
+            // Stop if index exceeds length OR characters don't match
+            if (i >= strs[j].length() || strs[j].charAt(i) != currentChar) {
+                return first.substring(0, i);
+            }
+        }
+    }
+
+    // If all characters matched
+    return first;
+}
 
     static void removeDb(int[] arr){
 
